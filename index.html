@@ -1,36 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="thrift-clj : Thrift and Clojure!" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>thrift-clj by xsc</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>thrift-clj</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>thrift-clj</h1>
+        <p>Thrift and Clojure!</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/xsc/thrift-clj">View on GitHub</a>
+        <p class="view"><a href="https://github.com/xsc/thrift-clj">View the Project on GitHub <small>xsc/thrift-clj</small></a></p>
 
-          <h1 id="project_title">thrift-clj</h1>
-          <h2 id="project_tagline">Thrift and Clojure!</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/xsc/thrift-clj/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/xsc/thrift-clj/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+        <ul>
+          <li><a href="https://github.com/xsc/thrift-clj/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/xsc/thrift-clj/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/xsc/thrift-clj">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <h2>
 <a name="using-thrift-from-clojure-as-if-it-was-clojure" class="anchor" href="#using-thrift-from-clojure-as-if-it-was-clojure"><span class="octicon octicon-link"></span></a>Using Thrift from Clojure as if it was Clojure!</h2>
 
@@ -43,18 +40,18 @@
 
 <p><strong>Leiningen</strong></p>
 
-<div class="highlight"><pre><span class="p">[</span><span class="nv">thrift-clj</span> <span class="s">"0.2.0"</span><span class="p">]</span>
+<div class="highlight highlight-clojure"><pre><span class="p">[</span><span class="nv">thrift-clj</span> <span class="s">"0.2.1"</span><span class="p">]</span>
 </pre></div>
 
 <p><strong>Clojure</strong></p>
 
-<div class="highlight"><pre><span class="p">(</span><span class="nf">require</span> <span class="o">'</span><span class="p">[</span><span class="nv">thrift-clj.core</span> <span class="ss">:as</span> <span class="nv">thrift</span><span class="p">])</span>
+<div class="highlight highlight-clojure"><pre><span class="p">(</span><span class="nf">require</span> <span class="o">'</span><span class="p">[</span><span class="nv">thrift-clj.core</span> <span class="ss">:as</span> <span class="nv">thrift</span><span class="p">])</span>
 </pre></div>
 
 <h3>
 <a name="types" class="anchor" href="#types"><span class="octicon octicon-link"></span></a>Types</h3>
 
-<div class="highlight"><pre><span class="p">(</span><span class="nf">thrift/import</span> 
+<div class="highlight highlight-clojure"><pre><span class="p">(</span><span class="nf">thrift/import</span> 
   <span class="p">(</span><span class="ss">:types</span> <span class="p">[</span><span class="nv">test.types</span> <span class="nv">Point</span><span class="p">]))</span>
 
 <span class="p">(</span><span class="k">def </span><span class="nv">p</span> <span class="p">(</span><span class="nf">Point.</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">))</span>
@@ -64,7 +61,7 @@
 <h3>
 <a name="clients" class="anchor" href="#clients"><span class="octicon octicon-link"></span></a>Clients</h3>
 
-<div class="highlight"><pre><span class="p">(</span><span class="nf">thrift/import</span>
+<div class="highlight highlight-clojure"><pre><span class="p">(</span><span class="nf">thrift/import</span>
   <span class="p">(</span><span class="ss">:types</span> <span class="p">[</span><span class="nv">test.types</span> <span class="nv">Point</span><span class="p">])</span>
   <span class="p">(</span><span class="ss">:clients</span> <span class="p">[</span><span class="nv">test.service.Painter</span> <span class="ss">:as</span> <span class="nv">P</span><span class="p">]))</span>
 
@@ -75,7 +72,7 @@
 <h3>
 <a name="services" class="anchor" href="#services"><span class="octicon octicon-link"></span></a>Services</h3>
 
-<div class="highlight"><pre><span class="p">(</span><span class="nf">thrift/import</span>
+<div class="highlight highlight-clojure"><pre><span class="p">(</span><span class="nf">thrift/import</span>
   <span class="p">(</span><span class="ss">:services</span> <span class="p">[</span><span class="nv">test.service.Painter</span> <span class="ss">:as</span> <span class="nv">P</span><span class="p">]))</span>
 
 <span class="p">(</span><span class="nf">thrift/defservice</span> <span class="nv">painter</span> <span class="nv">P</span>
@@ -96,16 +93,12 @@
 
 <p>If you want to have your Thrift IDL files compiled to Java automatically, have a look at <a href="https://github.com/xsc/lein-thriftc">lein-thriftc</a>!</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">thrift-clj maintained by <a href="https://github.com/xsc">xsc</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/xsc">xsc</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -116,7 +109,6 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
